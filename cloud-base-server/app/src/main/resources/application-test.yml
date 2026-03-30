@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://test-db:3306/cloud_base?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8
+    username: test_user
+    password: test_pass
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 50
+
+jwt:
+  secret: testSecretKey2024MustBeAtLeast256BitsLongForTest
+  expiration: 7200000
+
+shiro:
+  web:
+    enabled: true
+  login:
+    url: /auth/login
+
+swagger:
+  enabled: true

@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cloud_base?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root
+    password: admin123456
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 1800000
+
+jwt:
+  secret: cloudBaseSecretKey2024MustBeAtLeast256BitsLong
+  expiration: 86400000
+  header: Authorization
+  prefix: "Bearer "
+
+shiro:
+  web:
+    enabled: true
+  login:
+    url: /auth/login
+  success:
+    url: /
+  unauthorized:
+    url: /403
+
+swagger:
+  enabled: true
+  title: Cloud Base API Documentation
+  version: 1.0.0
+  description: Web系统通用脚手架接口文档
