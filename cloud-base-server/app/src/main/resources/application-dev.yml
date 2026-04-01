@@ -32,3 +32,11 @@ swagger:
   title: Cloud Base API Documentation
   version: 1.0.0
   description: Web系统通用脚手架接口文档
+
+weixin:
+  mini:
+    appid: your_mini_appid
+    secret: your_mini_secret
+  mp:
+    appid: your_mp_appid
+    secret: your_mp_secret

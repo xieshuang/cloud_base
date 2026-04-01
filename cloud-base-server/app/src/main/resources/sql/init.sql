@@ -274,3 +274,23 @@ INSERT INTO `sys_user_role` (`user_id`, `role_id`) VALUES (1, 1);
 
 -- 关联角色和菜单
 INSERT INTO `sys_role_menu` (`role_id`, `menu_id`) VALUES (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8);
+
+-- ----------------------------
+-- 11. 第三方用户绑定表
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_social_user`;
+CREATE TABLE `sys_social_user` (
+  `id` BIGINT NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `user_id` BIGINT DEFAULT NULL COMMENT '绑定的本地用户ID',
+  `social_type` TINYINT NOT NULL COMMENT '社交平台类型：1-微信小程序，2-微信公众号',
+  `openid` VARCHAR(100) NOT NULL COMMENT 'OpenID',
+  `unionid` VARCHAR(100) DEFAULT NULL COMMENT 'UnionID',
+  `nickname` VARCHAR(100) DEFAULT NULL COMMENT '昵称',
+  `avatar` VARCHAR(255) DEFAULT NULL COMMENT '头像',
+  `status` TINYINT NOT NULL DEFAULT 1 COMMENT '状态：0-禁用，1-启用',
+  `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_social` (`social_type`, `openid`),
+  KEY `idx_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='第三方用户绑定表';
