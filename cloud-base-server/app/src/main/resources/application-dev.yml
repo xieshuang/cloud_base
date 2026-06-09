@@ -40,3 +40,14 @@ weixin:
   mp:
     appid: your_mp_appid
     secret: your_mp_secret
+
+# DeepSeek AI 配置（使用环境变量注入，避免敏感信息硬编码）
+deepseek:
+  api-key: ${DEEPSEEK_API_KEY:your_api_key}
+  base-url: https://api.deepseek.com
+  model: deepseek-v4-flash
+
+# 和风天气 API 配置
+qweather:
+  api-key: ${QWEATHER_API_KEY:your_api_key}
+  base-url: your_domain/v7
