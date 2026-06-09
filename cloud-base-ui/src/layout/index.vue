@@ -26,6 +26,13 @@
           <el-menu-item index="/system/menu">菜单管理</el-menu-item>
           <el-menu-item index="/system/dept">部门管理</el-menu-item>
         </el-sub-menu>
+        <el-sub-menu index="/agent">
+          <template #title>
+            <el-icon><Sunny /></el-icon>
+            <span>AI智能</span>
+          </template>
+          <el-menu-item index="/agent/weather">天气查询</el-menu-item>
+        </el-sub-menu>
         <el-sub-menu index="/logs">
           <template #title>
             <el-icon><Document /></el-icon>

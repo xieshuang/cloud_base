@@ -52,6 +52,12 @@ const routes = [
         name: 'LoginLog',
         component: () => import('@/views/logs/login/index.vue'),
         meta: { title: '登录日志', permission: 'log:login:list' }
+      },
+      {
+        path: '/agent/weather',
+        name: 'WeatherAgent',
+        component: () => import('@/views/agent/weather/index.vue'),
+        meta: { title: '天气查询' }
       }
     ]
   }
